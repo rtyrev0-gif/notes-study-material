@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Aman Kumar Mahto 06</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a0f2e;--gold:#f0a500;--cream:#fdf8ee;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);}
+  nav{background:#fff;border-bottom:3px solid var(--gold);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;}
+  nav .logo{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-weight:900;text-decoration:none;display:flex;align-items:center;gap:8px;}
+  nav a.back{background:var(--navy);color:#fff;padding:8px 18px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;}
+  .hero{background:var(--navy);padding:60px 32px;text-align:center;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;font-weight:900;margin-bottom:10px;}
+  .hero h1 span{color:var(--gold);}
+  .hero p{color:rgba(255,255,255,0.65);font-size:15px;}
+  .contact-wrap{max-width:800px;margin:48px auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  @media(max-width:640px){.contact-wrap{grid-template-columns:1fr;}}
+  .card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 4px 20px rgba(10,15,46,0.08);}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);font-weight:800;margin-bottom:18px;}
+  .info-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f0f0f0;}
+  .info-item:last-child{border:none;}
+  .info-item .icon{font-size:1.5rem;width:40px;text-align:center;}
+  .info-item strong{display:block;font-size:13px;color:var(--navy);}
+  .info-item span{font-size:12px;color:#6c7293;}
+  label{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:5px;display:block;}
+  input,textarea{width:100%;border:1.5px solid #e2e6f0;border-radius:10px;padding:11px 14px;font-size:14px;font-family:'DM Sans',sans-serif;margin-bottom:14px;outline:none;color:var(--navy);}
+  input:focus,textarea:focus{border-color:var(--gold);}
+  textarea{height:100px;resize:vertical;}
+  button{width:100%;background:var(--gold);color:var(--navy);border:none;border-radius:12px;padding:13px;font-size:15px;font-weight:800;cursor:pointer;font-family:'DM Sans',sans-serif;}
+  button:hover{background:#ffcc44;}
+  footer{background:#06091e;color:rgba(255,255,255,0.5);text-align:center;padding:20px;font-size:12px;}
+  footer span{color:var(--gold);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">📚 Aman Kumar Mahto 06</a>
+  <a href="index.html" class="back">← Home</a>
+</nav>
+<div class="hero">
+  <h1>Contact <span>Us</span></h1>
+  <p>Get your notes within 30 minutes after payment. We're always here to help!</p>
+</div>
+<div class="contact-wrap">
+  <div class="card">
+    <h3>📞 Contact Info</h3>
+    <div class="info-item"><div class="icon">📱</div><div><strong>WhatsApp / Call</strong><span>9205107996</span></div></div>
+    <div class="info-item"><div class="icon">💳</div><div><strong>UPI Payment ID</strong><span>9205107996@pthdfc</span></div></div>
+    <div class="info-item"><div class="icon">📍</div><div><strong>Location</strong><span>Bihar, India</span></div></div>
+    <div class="info-item"><div class="icon">⏰</div><div><strong>Delivery Time</strong><span>Within 30 minutes of payment</span></div></div>
+    <div class="info-item"><div class="icon">📚</div><div><strong>Exams Covered</strong><span>Daroga, BPSC, Railway, SSC, Constable</span></div></div>
+  </div>
+  <div class="card">
+    <h3>✉️ Send a Message</h3>
+    <label>Your Name</label>
+    <input type="text" placeholder="Enter your name">
+    <label>WhatsApp Number</label>
+    <input type="tel" placeholder="10-digit number">
+    <label>Your Query</label>
+    <textarea placeholder="Which notes do you need? Which exam?"></textarea>
+    <button onclick="alert('Message sent! We will contact you on WhatsApp within 30 minutes.')">Send Message 📩</button>
+  </div>
+</div>
+<footer><p>© 2025 <span>Aman Kumar Mahto 06</span> · Bihar Police Daroga Exam Notes</p></footer>
+</body>
+</html>

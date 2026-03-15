@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Notes — Aman Kumar Mahto 06</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a0f2e;--gold:#f0a500;--cream:#fdf8ee;--green:#2dc653;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);}
+  nav{background:#fff;border-bottom:3px solid var(--gold);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99;}
+  nav .logo{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-weight:900;text-decoration:none;display:flex;align-items:center;gap:8px;}
+  nav .nav-links{display:flex;gap:8px;}
+  nav .nav-links a{text-decoration:none;color:var(--navy);font-size:13px;font-weight:600;padding:8px 14px;border-radius:8px;}
+  nav .nav-links a:hover{background:var(--navy);color:#fff;}
+  nav .nav-links .buy{background:var(--gold);color:var(--navy);}
+  .hero{background:var(--navy);padding:48px 32px;text-align:center;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;font-weight:900;}
+  .hero h1 span{color:var(--gold);}
+  .hero p{color:rgba(255,255,255,0.6);margin-top:8px;}
+  .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:28px 32px 0;}
+  .filter-btn{background:#fff;border:2px solid #e2e6f0;border-radius:20px;padding:8px 20px;font-size:13px;font-weight:600;cursor:pointer;color:var(--navy);transition:.2s;font-family:'DM Sans',sans-serif;}
+  .filter-btn.active,.filter-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;padding:28px 32px 48px;max-width:1200px;margin:0 auto;}
+  .note-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 14px rgba(10,15,46,0.07);transition:.25s;}
+  .note-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(10,15,46,0.13);}
+  .note-top{height:120px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:#f0f4ff;position:relative;}
+  .badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px;}
+  .badge-hot{background:#e63946;color:#fff;}
+  .badge-new{background:var(--green);color:#fff;}
+  .badge-ai{background:#3a86ff;color:#fff;}
+  .note-body{padding:16px;}
+  .etag{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+  .note-body h4{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:800;margin-bottom:5px;}
+  .note-body p{font-size:12px;color:#6c7293;margin-bottom:10px;line-height:1.5;}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+  .price{font-size:18px;font-weight:700;color:var(--navy);}
+  .old{font-size:12px;color:#6c7293;text-decoration:line-through;margin-left:6px;font-weight:400;}
+  .save{font-size:11px;background:rgba(45,198,83,0.12);color:#1a8a3a;padding:2px 8px;border-radius:8px;font-weight:700;}
+  .btn-buy{width:100%;background:var(--navy);color:#fff;border:none;border-radius:10px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;}
+  .btn-buy:hover{background:var(--gold);color:var(--navy);}
+  footer{background:#06091e;color:rgba(255,255,255,0.5);text-align:center;padding:20px;font-size:12px;}
+  footer span{color:var(--gold);}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+  .modal-overlay.open{display:flex;}
+  .modal{background:#fff;border-radius:20px;padding:32px;max-width:440px;width:90%;position:relative;}
+  .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#6c7293;}
+  .modal h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:900;margin-bottom:5px;}
+  .modal .sub{font-size:13px;color:#6c7293;margin-bottom:18px;}
+  label{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:4px;display:block;}
+  input,select{width:100%;border:1.5px solid #e2e6f0;border-radius:10px;padding:11px 14px;font-size:14px;font-family:'DM Sans',sans-serif;margin-bottom:12px;outline:none;color:var(--navy);}
+  input:focus,select:focus{border-color:var(--gold);}
+  .upi-box{background:#fffbef;border:2px dashed var(--gold);border-radius:12px;padding:14px;text-align:center;margin:10px 0;}
+  .upi-box .mid{font-size:15px;font-weight:700;color:var(--navy);}
+  .btn-confirm{width:100%;background:var(--gold);color:var(--navy);border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:800;cursor:pointer;margin-top:8px;font-family:'DM Sans',sans-serif;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">📚 Aman Kumar Mahto 06</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="test-series.html">Test Series</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html#payment" class="buy">Buy Now 🛒</a>
+  </div>
+</nav>
+<div class="hero">
+  <h1>All <span>Exam Notes</span></h1>
+  <p>200+ Premium PDFs for Bihar Police, BPSC, Railway & SSC Exams</p>
+</div>
+<div class="filters">
+  <button class="filter-btn active" onclick="filterNotes('all',this)">All Exams</button>
+  <button class="filter-btn" onclick="filterNotes('daroga',this)">👮 Daroga</button>
+  <button class="filter-btn" onclick="filterNotes('bpsc',this)">🏛️ BPSC</button>
+  <button class="filter-btn" onclick="filterNotes('railway',this)">🚂 Railway</button>
+  <button class="filter-btn" onclick="filterNotes('ssc',this)">📝 SSC</button>
+</div>
+<div class="notes-grid" id="notesGrid"></div>
+
+<div class="modal-overlay" id="buyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('buyModal').classList.remove('open')">✕</button>
+    <h3>🛒 Complete Purchase</h3>
+    <p class="sub">Fill details and pay via UPI for instant delivery</p>
+    <label>Your Name</label><input type="text" id="mName" placeholder="Full name">
+    <label>WhatsApp Number</label><input type="tel" id="mPhone" placeholder="10-digit number">
+    <label>Exam</label>
+    <select id="mExam"><option>Bihar Police Daroga</option><option>BPSC 70th</option><option>Railway NTPC</option><option>SSC CGL</option></select>
+    <div class="upi-box">
+      <div style="font-size:11px;color:#6c7293">Pay via UPI ID</div>
+      <div class="mid">9205107996@pthdfc</div>
+      <div id="mProduct" style="font-weight:700;color:var(--navy);font-size:14px;margin:4px 0"></div>
+      <div id="mAmt" style="font-size:22px;font-weight:900;color:var(--gold);font-family:'Space Mono',monospace"></div>
+      <small style="color:#6c7293">Pay then click confirm below</small>
+    </div>
+    <button class="btn-confirm" onclick="confirmBuy()">✅ I've Paid — Send My Notes</button>
+  </div>
+</div>
+
+<footer><p>© 2025 <span>Aman Kumar Mahto 06</span> · All Rights Reserved</p></footer>
+
+<script>
+const notes=[
+  {exam:'daroga',title:'Bihar Police Daroga Complete Notes',desc:'Full syllabus PDF — GK, Hindi, Math, Reasoning, Law',emoji:'👮',price:199,old:499,badge:'hot'},
+  {exam:'daroga',title:'Daroga Law & Constitution',desc:'Bihar Police Act, IPC, CrPC, Indian Constitution notes',emoji:'⚖️',price:99,old:249,badge:'new'},
+  {exam:'daroga',title:'Hindi Grammar & Essay Pack',desc:'Daroga Hindi paper — Vyakaran, Nibandh, Patra',emoji:'✍️',price:99,old:249,badge:'new'},
+  {exam:'daroga',title:'Daroga Math Shortcut Notes',desc:'1000+ solved questions with speed tricks',emoji:'🔢',price:129,old:299,badge:'ai'},
+  {exam:'bpsc',title:'BPSC 70th GS Complete Package',desc:'Bihar Special GK + GS 1/2/3 + Current Affairs 2024',emoji:'🏛️',price:299,old:699,badge:'hot'},
+  {exam:'bpsc',title:'Bihar Special GK 2024',desc:'Bihar history, geography, economy — 1000+ MCQs',emoji:'🗺️',price:149,old:349,badge:'ai'},
+  {exam:'bpsc',title:'BPSC Current Affairs 2024',desc:'Monthly current affairs Jan–Dec 2024 complete',emoji:'📰',price:99,old:199,badge:'new'},
+  {exam:'railway',title:'Railway NTPC Maths Booster',desc:'Quantitative Aptitude with shortcuts, 500+ questions',emoji:'🔢',price:149,old:349,badge:'ai'},
+  {exam:'railway',title:'Railway GK + Science Notes',desc:'General Science, General Awareness for NTPC & Group D',emoji:'🚂',price:129,old:299,badge:'new'},
+  {exam:'railway',title:'Railway Reasoning Notes',desc:'Complete verbal & non-verbal reasoning for RRB',emoji:'🧠',price:129,old:299,badge:'hot'},
+  {exam:'ssc',title:'SSC CGL Reasoning Master',desc:'Complete Verbal & Non-Verbal Reasoning with examples',emoji:'🧠',price:179,old:399,badge:'hot'},
+  {exam:'ssc',title:'SSC English Grammar Notes',desc:'Complete English for CGL, CHSL, MTS exams',emoji:'📝',price:149,old:299,badge:'new'},
+];
+function filterNotes(f,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const g=document.getElementById('notesGrid');
+  const d=f==='all'?notes:notes.filter(n=>n.exam===f);
+  g.innerHTML=d.map(n=>`
+    <div class="note-card">
+      <div class="note-top">${n.emoji}<span class="badge badge-${n.badge}">${n.badge==='hot'?'🔥 HOT':n.badge==='new'?'✨ NEW':'🤖 AI'}</span></div>
+      <div class="note-body">
+        <div class="etag">${n.exam.toUpperCase()}</div>
+        <h4>${n.title}</h4>
+        <p>${n.desc}</p>
+        <div class="price-row"><span class="price">₹${n.price}<span class="old">₹${n.old}</span></span><span class="save">${Math.round((1-n.price/n.old)*100)}% OFF</span></div>
+        <button class="btn-buy" onclick="openBuy('${n.title}',${n.price})">🛒 Buy Now</button>
+      </div>
+    </div>`).join('');
+}
+function openBuy(name,price){
+  document.getElementById('mProduct').textContent=name;
+  document.getElementById('mAmt').textContent='₹'+price;
+  document.getElementById('buyModal').classList.add('open');
+}
+function confirmBuy(){
+  const n=document.getElementById('mName').value.trim();
+  const p=document.getElementById('mPhone').value.trim();
+  if(!n||!p){alert('Please fill name and WhatsApp number!');return;}
+  document.getElementById('buyModal').classList.remove('open');
+  alert('✅ Order confirmed! Your notes will be sent to WhatsApp within 30 minutes.');
+}
+filterNotes('all',document.querySelector('.filter-btn'));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Aman Kumar Mahto 06 - Exam Notes",
+  "short_name": "AKM06 Notes",
+  "description": "Bihar Police Daroga, BPSC, Railway & SSC Exam Notes",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a0f2e",
+  "theme_color": "#f0a500",
+  "icons": [
+    { "src": "/assets/images/logo.svg", "sizes": "192x192", "type": "image/svg+xml" }
+  ]
+}

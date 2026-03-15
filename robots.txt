@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /ssl/
+Disallow: /admin/
+Disallow: /assets/js/
+Disallow: /*.key$
+Disallow: /*.pem$
+
+Sitemap: https://amankumarmahto06.com/sitemap.xml

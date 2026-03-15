@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Series — Aman Kumar Mahto 06</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@400;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a0f2e;--gold:#f0a500;--cream:#fdf8ee;--green:#2dc653;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);}
+  nav{background:#fff;border-bottom:3px solid var(--gold);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99;}
+  nav .logo{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-weight:900;text-decoration:none;display:flex;align-items:center;gap:8px;}
+  nav .nav-links{display:flex;gap:8px;}
+  nav .nav-links a{text-decoration:none;color:var(--navy);font-size:13px;font-weight:600;padding:8px 14px;border-radius:8px;}
+  nav .nav-links a:hover{background:var(--navy);color:#fff;}
+  nav .nav-links .buy{background:var(--gold);color:var(--navy);}
+  .hero{background:var(--navy);padding:48px 32px;text-align:center;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;font-weight:900;}
+  .hero h1 span{color:var(--gold);}
+  .hero p{color:rgba(255,255,255,0.6);margin-top:8px;}
+  section{padding:48px 32px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto;}
+  .card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 2px 14px rgba(10,15,46,0.07);border:2px solid transparent;transition:.25s;}
+  .card:hover{border-color:var(--gold);transform:translateY(-4px);}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);font-weight:800;margin-bottom:4px;}
+  .card .sub{font-size:12px;color:#6c7293;}
+  ul{list-style:none;margin:12px 0;}
+  ul li{font-size:13px;color:var(--navy);padding:4px 0;display:flex;align-items:center;gap:8px;}
+  ul li::before{content:'✓';color:var(--green);font-weight:700;}
+  .price{display:flex;align-items:center;gap:10px;margin:16px 0;}
+  .price .big{font-family:'Space Mono',monospace;font-size:24px;font-weight:700;color:var(--navy);}
+  .price .strike{font-size:13px;color:#6c7293;text-decoration:line-through;}
+  .price .off{font-size:11px;background:rgba(45,198,83,0.12);color:#1a8a3a;padding:3px 10px;border-radius:10px;font-weight:700;}
+  .btn{width:100%;background:var(--navy);color:#fff;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;}
+  .btn:hover{background:var(--gold);color:var(--navy);}
+  .ai-badge{background:rgba(58,134,255,0.1);border:1px solid rgba(58,134,255,0.3);color:#3a86ff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px;letter-spacing:.8px;}
+  footer{background:#06091e;color:rgba(255,255,255,0.5);text-align:center;padding:20px;font-size:12px;}
+  footer span{color:var(--gold);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">📚 Aman Kumar Mahto 06</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="notes.html">Notes</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html#payment" class="buy">Buy Now 🛒</a>
+  </div>
+</nav>
+<div class="hero">
+  <h1>AI-Powered <span>Test Series</span></h1>
+  <p>Previous year pattern based mock tests with AI performance analytics</p>
+</div>
+<section>
+  <div class="grid">
+    <div class="card">
+      <div class="top"><div><h3>Daroga SI Full Package</h3><div class="sub">Bihar Police Sub-Inspector</div></div><span style="font-size:2.2rem">👮</span></div>
+      <div class="ai-badge">🤖 AI POWERED</div>
+      <ul>
+        <li>20 Full Mock Tests (Prelim + Mains)</li>
+        <li>Previous 10 years PYQ solved</li>
+        <li>AI performance analysis report</li>
+        <li>Subject-wise weak area detection</li>
+        <li>Hindi & English both medium</li>
+        <li>Instant PDF result after each test</li>
+      </ul>
+      <div class="price"><span class="big">₹299</span><span class="strike">₹799</span><span class="off">62% OFF</span></div>
+      <button class="btn" onclick="buy('Daroga SI Full Test Series',299)">Get Test Series</button>
+    </div>
+    <div class="card">
+      <div class="top"><div><h3>BPSC Complete Test Pack</h3><div class="sub">70th Combined Exam</div></div><span style="font-size:2.2rem">🏛️</span></div>
+      <div class="ai-badge">🤖 AI POWERED</div>
+      <ul>
+        <li>25 Full Mock Tests</li>
+        <li>GS + Optional subject tests</li>
+        <li>Mains answer writing practice</li>
+        <li>AI essay & answer evaluation</li>
+        <li>Current affairs daily quiz</li>
+        <li>Bihar special questions bank</li>
+      </ul>
+      <div class="price"><span class="big">₹399</span><span class="strike">₹999</span><span class="off">60% OFF</span></div>
+      <button class="btn" onclick="buy('BPSC Complete Test Pack',399)">Get Test Series</button>
+    </div>
+    <div class="card">
+      <div class="top"><div><h3>Railway Mega Bundle</h3><div class="sub">NTPC + Group D + ALP</div></div><span style="font-size:2.2rem">🚂</span></div>
+      <div class="ai-badge">🤖 AI POWERED</div>
+      <ul>
+        <li>30 Stage-1 Mock Tests</li>
+        <li>CBT-2 specialized tests</li>
+        <li>Speed & accuracy drills</li>
+        <li>Live leaderboard ranking</li>
+        <li>Topic-wise sectional tests</li>
+        <li>Full detailed solutions PDF</li>
+      </ul>
+      <div class="price"><span class="big">₹249</span><span class="strike">₹699</span><span class="off">64% OFF</span></div>
+      <button class="btn" onclick="buy('Railway Mega Test Bundle',249)">Get Test Series</button>
+    </div>
+    <div class="card">
+      <div class="top"><div><h3>SSC CGL Test Series</h3><div class="sub">CGL + CHSL + MTS</div></div><span style="font-size:2.2rem">📝</span></div>
+      <div class="ai-badge">🤖 AI POWERED</div>
+      <ul>
+        <li>20 Full Tier-1 Mock Tests</li>
+        <li>Tier-2 practice papers</li>
+        <li>Section-wise speed tests</li>
+        <li>English special mock tests</li>
+        <li>Quant speed drill tests</li>
+        <li>PYQ analysis questions</li>
+      </ul>
+      <div class="price"><span class="big">₹199</span><span class="strike">₹599</span><span class="off">67% OFF</span></div>
+      <button class="btn" onclick="buy('SSC CGL Test Series',199)">Get Test Series</button>
+    </div>
+    <div class="card">
+      <div class="top"><div><h3>Bihar Constable Pack</h3><div class="sub">Bihar Police Constable</div></div><span style="font-size:2.2rem">🛡️</span></div>
+      <div class="ai-badge">🤖 AI POWERED</div>
+      <ul>
+        <li>15 Full Mock Tests</li>
+        <li>GK + Reasoning + Hindi tests</li>
+        <li>Bihar GK special tests</li>
+        <li>Physical fitness prep guide</li>
+        <li>Current affairs 2024 quiz</li>
+        <li>All Bihar district GK</li>
+      </ul>
+      <div class="price"><span class="big">₹149</span><span class="strike">₹399</span><span class="off">63% OFF</span></div>
+      <button class="btn" onclick="buy('Bihar Constable Test Pack',149)">Get Test Series</button>
+    </div>
+    <div class="card">
+      <div class="top"><div><h3>All Exams Mega Bundle</h3><div class="sub">All 5 Exams Combined</div></div><span style="font-size:2.2rem">🏆</span></div>
+      <div class="ai-badge" style="background:rgba(240,165,0,0.15);border-color:var(--gold);color:var(--gold)">⭐ BEST VALUE</div>
+      <ul>
+        <li>110+ Total Mock Tests</li>
+        <li>All 5 exam series included</li>
+        <li>AI-guided study plan</li>
+        <li>Priority WhatsApp support</li>
+        <li>Monthly new tests added</li>
+        <li>Valid for 12 months</li>
+      </ul>
+      <div class="price"><span class="big">₹799</span><span class="strike">₹2499</span><span class="off">68% OFF</span></div>
+      <button class="btn" style="background:var(--gold);color:var(--navy)" onclick="buy('All Exams Mega Bundle',799)">🏆 Get All Series</button>
+    </div>
+  </div>
+</section>
+<footer><p>© 2025 <span>Aman Kumar Mahto 06</span> · All Rights Reserved</p></footer>
+<script>
+function buy(name,price){
+  const upiUrl=`upi://pay?pa=9205107996@pthdfc&pn=Aman%20Kumar%20Mahto%2006&am=${price}&cu=INR&tn=${encodeURIComponent(name)}`;
+  const ok=confirm(`Buy "${name}" for ₹${price}?\n\nUPI ID: 9205107996@pthdfc\n\nClick OK to open UPI app, then send screenshot to WhatsApp for delivery.`);
+  if(ok)window.location.href=upiUrl;
+}
+</script>
+</body>
+</html>
